@@ -4,7 +4,7 @@ import { useStateValue } from '../../StateProvider'
 import './BasketProduct.css'
 
 function BasketProduct({ id, title, price, rating, image }) {
-    const [{ basket }, dispatch] = useStateValue()
+    const [, dispatch] = useStateValue()
 
     const deleteFromBasket = () => {
         // delete item from the basket
@@ -15,7 +15,7 @@ function BasketProduct({ id, title, price, rating, image }) {
     }
 
     return (
-        <div key={id} className="basketProduct">
+        <div className="basketProduct">
             <div className="basketProduct__container__image">
                 <img className="basketProduct__image" src={image} alt="" />
             </div>

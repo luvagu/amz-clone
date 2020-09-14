@@ -10,6 +10,11 @@
     margin-bottom: 10px;
 }
 
+.basket__user {
+    margin-right: 10px;
+    padding-left: 10px;
+}
+
 .basket__title {
     margin-right: 10px;
     padding: 10px;

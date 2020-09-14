@@ -14,5 +14,104 @@
 }
 
 .login__container {
-    
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: fit-content;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 20px;
+    background-color: white;
+}
+
+.login__container > h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.login__container > form > h5 {
+    margin-bottom: 5px;
+}
+
+.login__container > form > input {
+    margin-bottom: 10px;
+    height: 30px;
+    background-color: white;
+    width: 98%;
+    padding: 3px 7px;
+    border: 1px solid #a6a6a6;
+    border-top-color: #949494;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 rgba(255,255,255,.5),0 1px 0 rgba(0,0,0,.07) inset;
+    outline: 0;
+    color: #111;
+}
+
+.login__container > p {
+    font-size: 12px;
+    margin-top: 15px;
+    text-align: justify;
+}
+
+.login__signInButton {
+    cursor: pointer;
+    background: #f0c14b;
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    border-radius: 3px;
+    outline: none;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: #111;
+    width: 98%;
+}
+
+.login__signInButton:hover {
+    background: #f0c14b;
+    background: linear-gradient(to bottom,#f5d78e,#eeb933);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
+    border-color: #adb1b8 #a2868c #a2868c;
+}
+
+.login__signInButton:focus  {
+    box-shadow: 0 0 3px 2px rgba(228,121,75,.5);
+}
+
+.login__signInButton:active  {
+    background: #f0c14b;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
+    border-color: #a88734 #9c7e31 #9c7e31;
+}
+
+.login__registerButton {
+    cursor: pointer;
+    background: #e7e9ec;
+    background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset;
+    border: 1px solid;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    border-radius: 3px;
+    outline: none;
+    margin-top: 10px;
+    padding: 5px 10px;
+    color: #111;
+    width: 98%;
+}
+
+.login__registerButton:hover {
+    background: #dcdfe3;
+    background: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
+    border-color: #adb1b8 #a2868c #a2868c;
+}
+
+.login__registerButton:focus  {
+    box-shadow: 0 0 3px 2px rgba(228,121,75,.5);
+}
+
+.login__registerButton:active  {
+    background: #dcdfe3;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
 }

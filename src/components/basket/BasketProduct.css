@@ -1,0 +1,44 @@
+.basketProduct {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.basketProduct__container__image {
+    width: 180px;
+}
+
+.basketProduct__info {
+    padding-left: 20px;
+}
+
+.basketProduct__info > button {
+    cursor: pointer;
+    background-color: #f0c14b;
+    border: 1px solid;
+    border-color: #a88734 #9c7e31 #846a29;
+    margin-top: 10px;
+    padding: 3px 5px;
+    color: #111;
+}
+
+.basketProduct__info > button:hover {
+    background: linear-gradient(to bottom,#f5d78e,#eeb933);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) inset;
+    border-color: #adb1b8 #a2868c #a2868c;
+}
+
+.basketProduct__image {
+    object-fit: contain;
+    width: 180px;
+    height: 180px;
+}
+
+.basketProduct__rating {
+    display: flex;
+}
+
+.basketProduct__title {
+    font-size: 17px;
+    font-weight: 800;
+}

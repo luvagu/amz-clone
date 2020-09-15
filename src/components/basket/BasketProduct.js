@@ -3,7 +3,7 @@ import { useStateValue } from '../../StateProvider'
 
 import './BasketProduct.css'
 
-function BasketProduct({ id, title, price, rating, image }) {
+function BasketProduct({ id, title, price, rating, image, hiddenBt }) {
     const [, dispatch] = useStateValue()
 
     const deleteFromBasket = () => {
@@ -31,7 +31,7 @@ function BasketProduct({ id, title, price, rating, image }) {
                         <p key={i}><span role="img" aria-label="star">⭐️</span></p>
                     ))}
                 </div>
-                <button onClick={deleteFromBasket}>Delete</button>
+                {!hiddenBt && (<button onClick={deleteFromBasket}>Delete</button>)}
             </div>
         </div>
     )

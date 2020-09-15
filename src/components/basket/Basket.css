@@ -3,6 +3,7 @@
     padding: 20px;
     background-color: white;
     height: max-content;
+    justify-content: space-evenly;
 }
 
 .basket__ad {

@@ -9,17 +9,29 @@ const stripe = require('stripe')('sk_test_519LE50LWDjvp29BfZ9vtlUaZa7J8GXitFpNKS
 const app = express()
 
 // Middlewares
-app.use(cors())
-// app.use(cors({ origin: true }))
+// const whitelist = ['http://localhost:3000', 'https://amz-react-clone.web.app']
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         if (whitelist.indexOf(origin) !== -1) {
+//             callback(null, true)
+//         } else {
+//             callback(new Error('Not allowed by CORS'))
+//         }
+//     }
+// }
+// app.use(cors(corsOptions));
+//app.use(cors())
+app.use(cors({ origin: true }))
+
 app.use(express.json())
 
 // Routes Req / Res
 app.get('/', (req, res) => res.status(200).send('<h1>Welcome to AMZ Clone Backend</h1>'))
 
-app.post('/payments/create', async (req, res) => {
+app.post('/checkout/payment', async (req, res) => {
     const total = req.query.total
 
-    console.log('Payment Request Received, amount >>>> ', total)
+    // console.log('Payment Request Received, amount >>>> ', total)
 
     const paymentIntent = await stripe.paymentIntents.create({
         amount: total,
@@ -36,7 +48,6 @@ app.post('/payments/create', async (req, res) => {
 
 // Listen commands
 exports.app = functions.https.onRequest(app)
-
 
 // Example enpoints
 // http://localhost:5001/amz-react-clone/us-central1/app

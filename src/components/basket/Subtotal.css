@@ -49,3 +49,10 @@
     box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
     border-color: #a88734 #9c7e31 #9c7e31;
 }
+
+.subtotal > button:disabled  {
+    background: #dcdfe3;
+    background: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+    box-shadow: 0 1px 3px rgba(0,0,0,.2) inset;
+    border-color: #adb1b8 #a2868c #a2868c;
+}

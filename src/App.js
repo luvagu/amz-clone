@@ -15,7 +15,7 @@ import Orders from './components/orders/Orders'
 const promise = loadStripe('pk_test_519LE50LWDjvp29Bflo1RmTfOE9ZAIoLgOR5FPq0yujNgchqvkTm7xEg4GQZjOMKywqrThByBboSffzMlRQbim1nN00thJDBzDg')
 
 function App() {
-  const [{}, dispatch] = useStateValue()
+  const [, dispatch] = useStateValue()
 
   useEffect(() => {
     // will only run when the app component loads

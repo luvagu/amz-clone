@@ -29,60 +29,66 @@ function Checkout() {
             const response =  await axios({
                 method: 'post',
                 // Stripe expects the total in a currency subunit
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
+                url: `/checkout/payment?total=${getBasketTotal(basket) * 100}`
             })
-            setClientSecret(response.data.clientSecret)
+            .catch(() => console.log('Oooops >>>> Could not get clientSecret'))
+
+            setClientSecret(response?.data.clientSecret)
         }
 
         getClientSecret()
     }, [basket])
 
-    console.log('Secret response  >>> ', clientSecret)
-    console.log('Stripe total >>> ', getBasketTotal(basket) * 100)
+    // console.log('Secret response  >>> ', clientSecret)
+    // console.log('Stripe total >>> ', getBasketTotal(basket) * 100)
 
     const handleSubmit = async (event) => {
         // do all the payment processing with stripe
         event.preventDefault()
         setProcessing(true)
 
-        const payload = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: elements.getElement(CardElement)
-            }
-        })
-        .then(({ paymentIntent }) => {
-            // paymentIntent = payment confirmation
+        try {
+            const payload = await stripe.confirmCardPayment(clientSecret, {
+                payment_method: {
+                    card: elements.getElement(CardElement)
+                }
+            })
+            .then(({ paymentIntent }) => {
+                // paymentIntent = payment confirmation
 
-            // push order to firestore db
-            db
-                .collection('users')
-                .doc(user?.uid)
-                .collection('orders')
-                .doc(paymentIntent.id)
-                .set({
-                    basket: basket,
-                    amount: paymentIntent.amount,
-                    created: paymentIntent.created
+                // push order to firestore db
+                db
+                    .collection('users')
+                    .doc(user?.uid)
+                    .collection('orders')
+                    .doc(paymentIntent.id)
+                    .set({
+                        basket: basket,
+                        amount: paymentIntent.amount,
+                        created: paymentIntent.created
+                    })
+
+                setSucceded(true)
+                setError(null)
+                setProcessing(false)
+
+                dispatch({
+                    type: 'EMPTY_BASKET'
                 })
 
-
-            setSucceded(true)
-            setError(null)
-            setProcessing(false)
-
-            dispatch({
-                type: 'EMPTY_BASKET'
+                history.replace('/orders')
             })
+        } catch(err) {
+            console.log('Oooops >>> Invalid payment details');
+        }
 
-            history.replace('/orders')
-        })
     }
 
     const handleChange = (event) => {
         // listen for changes in the CardElement
-        // and display any errors to the customer on the fly
+        // and display any errors to the customer
         setDisabled(event.empty);
-        setError(event.error ? event.error.message : '')
+        setError(event.error ? event.error.message : "");
     }
 
     return (
@@ -142,11 +148,11 @@ function Checkout() {
                                     prefix={'$'}
                                 />
                                 <button disabled={processing || disabled || succeded}>
-                                        <span>{processing ? <p>Processing</p> : 'Submit Payment'}</span>
+                                        <span>{processing ? ('Processing') : ('Submit Payment')}</span>
                                 </button>                                
                             </div>
                             {/* errors */}
-                            {error && <div>{error}</div>}
+                            {error && (<div className="checkout__errorMessage">{error}</div>)}
                         </form>
                     </div>
                 </div>

@@ -1,7 +1,6 @@
 import React from 'react'
 import { useStateValue } from '../../StateProvider'
 
-import FlipMove from 'react-flip-move'
 import BasketProduct from './BasketProduct'
 import Subtotal from './Subtotal'
 
@@ -20,21 +19,17 @@ function Basket() {
                     <h2 className="basket__title">Your Shopping Basket</h2>
                 </div>
 
-                <FlipMove staggerDurationBy="30"
-                    duration={500}
-                    typeName="div">
-                    {basket.map((product, index) => (
-                        <div ref={index} key={index}>
-                            <BasketProduct 
-                                id={product.id}
-                                image={product.image}
-                                title={product.title}
-                                price={product.price}
-                                rating={product.rating}
-                            />
-                        </div>
-                    ))}
-                </FlipMove>
+                {basket.map((product, index) => (
+                    <BasketProduct 
+                        key={index}
+                        id={product.id}
+                        image={product.image}
+                        title={product.title}
+                        price={product.price}
+                        rating={product.rating}
+                    />
+                ))}
+
             </div>
 
             <div className="basket__right">

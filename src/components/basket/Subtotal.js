@@ -11,13 +11,15 @@ function Subtotal() {
     const [{ basket }] = useStateValue()
     //console.log('basket >>>>>', basket)
 
+    const items = basket?.length
+
     return (
         <div className="subtotal">
             <CurrencyFormat 
                 renderText={(total) => (
                     <>
                         <p>
-                            Subtotal ({basket?.length} items): <strong>{total}</strong>
+                            Subtotal ({items} items): <strong>{total}</strong>
                         </p>
                         <small className="subtotal__gift">
                             <input type="checkbox" id="gift" /> <label htmlFor="gift">This order contains a gift</label>
@@ -30,7 +32,7 @@ function Subtotal() {
                 thousandSeparator={true}
                 prefix={'$'}
             />
-            <button onClick={() => history.push('/checkout')}>Proceed to Checkout</button>
+            <button onClick={() => history.push('/checkout')}  disabled={!items && ('disabled')}>Proceed to Checkout</button>
         </div>
     )
 }

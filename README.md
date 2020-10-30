@@ -1,3 +1,9 @@
+### See working demo at:
+
+Go to: [https://amz-react-clone.web.app/](https://amz-react-clone.web.app/)
+
+### This project was bootstrapped with:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -28,6 +28,10 @@
     flex: 0.2;
 }
 
+.checkout__errorMessage {
+    color: red;
+}
+
 .checkout__address, .checkout__items, .checkout__details {
     flex: 0.8;
 }

@@ -3,7 +3,7 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-	apiKey: 'YOUR_API_KEY',
+	apiKey: 'AIzaSyDGxHaGeReMV4ZYbSroiD-XwdQ-Dv3gzdc',
 	authDomain: 'amz-react-clone.firebaseapp.com',
 	databaseURL: 'https://amz-react-clone.firebaseio.com',
 	projectId: 'amz-react-clone',

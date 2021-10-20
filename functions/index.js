@@ -2,7 +2,7 @@
 const functions = require('firebase-functions');
 const express = require('express')
 const cors = require('cors')
-const stripe = require('stripe')('YOUR_STRIPE_API_KEY')
+const stripe = require('stripe')('sk_test_519LE50LWDjvp29BfZ9vtlUaZa7J8GXitFpNKSWwVpmVkCmmhE0hNsV8vbzGDl2w2w4f2c0hT7nRoCofzuEU32hKj00kDVqZr1M')
 
 // API config
 // const port = process.env.port || 5000
